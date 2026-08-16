@@ -1,0 +1,71 @@
+# Ayane sunucusu — DIŞARIDAN sağlık denetimi.
+#
+# NİYE BURADA: sunucunun kendi üstündeki bekçi (ayane-watchdog.timer) yalnız
+# "uygulama takıldı" hâlini yakalar. Makine tamamen ölürse o bekçi de ölür ve
+# kimse haber vermez. Bu iş GitHub'ın makinelerinde çalışıyor → sunucumuz
+# tamamen düşse bile bu koşuyor ve HABER VERİYOR.
+#
+# NİYE GITHUB: yeni hesap/servis gerekmiyor, depo herkese açık olduğu için
+# Actions ücretsiz ve sınırsız. Koşu başarısız olunca GitHub e-posta atar.
+#
+# YENİ OYUN EKLERKEN: aşağıdaki APPS listesine adını ekle, hepsi bu.
+#
+# ⚠️ BİLİNEN SINIR: GitHub, 60 gün hiç işlem görmeyen depolarda zamanlanmış
+# iş akışlarını DEVRE DIŞI bırakır — sessizce izlemesiz kalırsın. Depoya ara
+# sıra commit geliyorsa sorun yok; gelmiyorsa Actions sekmesinden yeniden aç.
+# Ayrıca zamanlama "yaklaşık"tır, yoğunlukta birkaç dakika gecikebilir.
+
+name: Ayane uptime
+
+on:
+  schedule:
+    - cron: "*/10 * * * *" # 10 dakikada bir
+  workflow_dispatch: # elle de çalıştırılabilir
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sağlık denetimi
+        env:
+          BASE: https://api.ayanelabs.com
+          APPS: wordatlas # boşlukla ayır: "wordatlas wordle wordfit"
+        run: |
+          fail=0
+
+          check() {
+            name="$1"; url="$2"
+            # 3 deneme: tek seferlik ağ hıçkırığı yüzünden sahte alarm verme.
+            for i in 1 2 3; do
+              code=$(curl -s -o /tmp/body -w '%{http_code}' --max-time 15 "$url" || echo 000)
+              if [ "$code" = "200" ]; then
+                echo "✅ $name ($url)"
+                return 0
+              fi
+              sleep 10
+            done
+            echo "❌ $name — HTTP $code · $url"
+            head -c 200 /tmp/body 2>/dev/null || true
+            echo
+            fail=1
+          }
+
+          # Kapı: TLS + Caddy ayakta mı (uygulamalardan bağımsız).
+          check "kapı" "$BASE/health"
+
+          # Her uygulama kendi ucundan.
+          for app in $APPS; do
+            check "$app" "$BASE/$app/health"
+          done
+
+          # Sertifikanın bitmesine 10 günden az kaldıysa uyar. Caddy kendi yeniler
+          # ama yenileme sessizce bozulursa siteyi bir sabah kapalı bulmayalım.
+          days=$(echo | openssl s_client -connect api.ayanelabs.com:443 -servername api.ayanelabs.com 2>/dev/null \
+                 | openssl x509 -noout -enddate 2>/dev/null | cut -d= -f2)
+          if [ -n "$days" ]; then
+            left=$(( ( $(date -d "$days" +%s) - $(date +%s) ) / 86400 ))
+            echo "ℹ️  sertifika $left gün geçerli"
+            [ "$left" -lt 10 ] && echo "❌ sertifika bitmek üzere ($left gün)" && fail=1
+          fi
+
+          exit $fail
