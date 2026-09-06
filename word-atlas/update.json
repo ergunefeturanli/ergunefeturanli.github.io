@@ -1,6 +1,6 @@
 {
   "_comment": "Word Atlas guncelleme penceresi ayari. latestVersion mağazada CANLI olan surumu gosterir - sadece iki magazada da yayildiktan SONRA yukseltilir, yoksa oyuncu Guncelle'ye basip ayni surumu gorur. minVersion ACIL DURUM kolu: bunun ALTINDAKI surumler kapatilamaz pencere gorur; normalde null kalir.",
-  "latestVersion": "1.0.2",
+  "latestVersion": "1.0.1",
   "minVersion": null,
   "iosUrl": "https://apps.apple.com/app/id6796888444",
   "androidUrl": "https://play.google.com/store/apps/details?id=com.ergunefeturanli.wordsearch",
