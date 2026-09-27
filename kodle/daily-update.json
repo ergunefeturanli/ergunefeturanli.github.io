@@ -1,0 +1,9 @@
+{
+  "minimumDailyScheduleVersion": 4,
+  "iosStoreUrl": "https://apps.apple.com/app/id6807187155",
+  "androidStoreUrl": "https://play.google.com/store/apps/details?id=com.ergunefeturanli.kodle",
+  "crossPromo": {
+    "ios": true,
+    "android": true
+  }
+}
