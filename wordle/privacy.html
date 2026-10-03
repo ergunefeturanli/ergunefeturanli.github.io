@@ -88,33 +88,64 @@
   <body>
     <main>
       <header>
-        <p class="meta">Last updated: May 18, 2026</p>
+        <p class="meta">Last updated: October 3, 2026</p>
         <h1>WORDLE Privacy Policy</h1>
         <p>
-          This Privacy Policy explains how Ayane Labs handles information in the WORDLE mobile app.
+          This Privacy Policy explains what information the WORDLE mobile app by Ayane Labs uses, why, and the choices you have.
         </p>
       </header>
 
       <section class="notice">
         <p>
-          WORDLE is designed as a local-first word game. The app does not require an account, login, or user profile to play.
+          WORDLE does not require an account, login, email address, or real name to play. The app creates a random player ID on your device; it is not linked to your name, phone number, or contacts.
         </p>
       </section>
 
       <section>
-        <h2>Information We Store on Your Device</h2>
+        <h2>Information Stored on Your Device</h2>
         <p>
-          WORDLE stores gameplay information locally on your device so the app can remember your current game, Daily result, language choice, word length preference, statistics, streaks, and settings.
+          WORDLE stores your current game, Daily results, statistics, streaks, coins, language, word length, and settings on your device so the game can remember them.
+        </p>
+      </section>
+
+      <section>
+        <h2>Leaderboard and Score Backup</h2>
+        <p>
+          To run the leaderboard and to restore your scores if you reinstall the app, WORDLE sends the following to our game server: your random player ID, your leaderboard nickname (created automatically, for example "Player4600", and changeable in the app), your scores and game statistics, your device platform (iOS or Android), app language, time zone offset, and when the app was last used.
         </p>
         <p>
-          This local gameplay data is not sent to an Ayane Labs account server. You can remove it by clearing the app data or uninstalling the app.
+          Your nickname and score are shown publicly on the in-app leaderboard. The server is hosted by Vercel and the data is stored in a Turso database. We can also use your player ID to send you a coin gift inside the game.
+        </p>
+      </section>
+
+      <section>
+        <h2>Notifications</h2>
+        <p>
+          WORDLE can remind you about the Daily puzzle. If you allow notifications, the app registers a push token (through the Expo push notification service) together with your app language and time zone offset so reminders arrive in your language at a sensible time. You can turn notifications off in the app or in your device settings at any time.
+        </p>
+      </section>
+
+      <section>
+        <h2>In-App Purchases</h2>
+        <p>
+          Coin purchases are processed by the Apple App Store or Google Play. We never receive your card or payment details. We use Adapty to confirm purchases and deliver what you bought; Adapty receives purchase details and technical device information for this purpose.
+        </p>
+        <p>
+          For Google Play purchases, our server receives Google's purchase notifications so that coins can still be delivered when a payment completes later (for example, a pending payment). For this we store the order number, product, purchase time, country, and the player ID the coins were delivered to. These records are deleted after 60 days.
+        </p>
+      </section>
+
+      <section>
+        <h2>Analytics</h2>
+        <p>
+          WORDLE uses Google Firebase Analytics to understand how the game is played and to improve it: for example games started and finished, screens viewed, coins spent, rewarded ads watched, purchases (product and price), and app version, device model, and operating system. Firebase assigns an app instance ID. Analytics is collected only from real phones and tablets, not from test devices or development builds.
         </p>
       </section>
 
       <section>
         <h2>Advertising</h2>
         <p>
-          WORDLE uses Google AdMob to show ads. Ads may include banner ads during gameplay and rewarded ads when you choose to use optional Classic mode helpers.
+          WORDLE uses Google AdMob to show ads. Ads may include banner ads during gameplay and rewarded ads when you choose to watch one, for example to earn coins.
         </p>
         <p>
           Google and its partners may process information such as device identifiers, IP address, approximate location, app activity related to ad delivery, diagnostics, and advertising interaction data. This processing is handled by Google according to Google's policies.
@@ -152,7 +183,16 @@
       <section>
         <h2>Support Emails</h2>
         <p>
-          If you contact us by email from the app, your email app may include your message and optional technical details such as app version, platform, device, and operating system version. We use support emails only to respond to feedback, support requests, or bug reports.
+          If you contact us by email from the app, your email app includes your message and technical details such as app version, platform, device, operating system version, and your player code (your random player ID), so we can find your leaderboard entry or send you a coin gift. We use support emails only to respond to you.
+        </p>
+      </section>
+
+      <section>
+        <h2>Deleting Your Data</h2>
+        <p>
+          You can remove the data stored on your device by uninstalling the app. To delete your leaderboard and score backup data from our server, email us at
+          <a href="mailto:ayanelabs@gmail.com">ayanelabs@gmail.com</a>
+          (sending feedback from the app's Settings includes your player code). We delete it within 30 days.
         </p>
       </section>
 
@@ -165,11 +205,15 @@
 
       <section>
         <h2>Third-Party Services</h2>
-        <p>WORDLE may use the following third-party services:</p>
+        <p>WORDLE uses the following third-party services:</p>
         <ul>
-          <li>Google AdMob and Google Mobile Ads SDK for advertising and ad consent support.</li>
-          <li>GitHub-hosted static configuration or legal pages.</li>
-          <li>Apple App Store and Google Play services for app distribution, if you install the app through those stores.</li>
+          <li>Google AdMob and the Google Mobile Ads SDK for advertising and ad consent.</li>
+          <li>Google Firebase Analytics for game analytics.</li>
+          <li>Adapty for confirming in-app purchases.</li>
+          <li>Apple App Store and Google Play for app distribution and payments.</li>
+          <li>Expo push notification service for notification delivery.</li>
+          <li>Vercel and Turso for hosting the leaderboard server and its database.</li>
+          <li>GitHub for the static configuration file and legal pages.</li>
         </ul>
       </section>
 
