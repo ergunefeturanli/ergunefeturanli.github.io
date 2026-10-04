@@ -88,7 +88,7 @@
   <body>
     <main>
       <header>
-        <p class="meta">Last updated: September 25, 2026</p>
+        <p class="meta">Last updated: October 4, 2026</p>
         <h1>Kodle Privacy Policy</h1>
         <p>
           This Privacy Policy explains how Ayane Labs handles information in the Kodle mobile game.
@@ -97,7 +97,7 @@
 
       <section class="notice">
         <p>
-          Kodle is a local-first number puzzle game: you guess a hidden number in six tries. The app does not require an account, a login, an email address, or a user profile. Your progress lives on your device. The features that leave your device are the optional leaderboard and the optional reminder, both described below; you can play the whole game without either.
+          Kodle is a local-first number puzzle game: you guess a hidden number in six tries. The app does not require an account, a login, an email address, or a user profile. Your progress lives on your device. The parts of the app that talk to our own server are the optional leaderboard, the delivery of completed in-app purchases, and occasional coin gifts, all described below; you can play the whole game without the leaderboard or any purchase.
         </p>
       </section>
 
@@ -110,7 +110,7 @@
           The app also generates a random identifier for your installation and stores it on the device. It is not your device's advertising identifier, and it is not linked to your name, email address, or any account.
         </p>
         <p>
-          This local game data stays on your device, apart from the leaderboard and reminder information described below. You can remove the local copy by clearing the app data or uninstalling the app.
+          This local game data stays on your device, apart from the leaderboard, purchase and gift information described below. You can remove the local copy by clearing the app data or uninstalling the app.
         </p>
       </section>
 
@@ -128,25 +128,28 @@
         <p>
           The server is operated by Ayane Labs and hosted in Frankfurt, Germany.
         </p>
+        <p>
+          The same server may offer you a coin gift from us, inside the replies the app already receives. A gift is either for every player or for one installation — for example when you write to support about a problem (see Support Emails). A gift for one installation is stored with that anonymous identifier and deleted about a month after it ends. The app remembers which gifts it has collected; the server does not.
+        </p>
       </section>
 
       <section>
         <h2>Reminders and Notifications</h2>
         <p>
-          If you allow notifications, Kodle schedules daily reminders on your device. Scheduling happens on the device itself.
+          If you allow notifications, Kodle schedules reminders on your device: at most one ordinary reminder a day, a reminder on a day your daily streak would otherwise end, and a few reminders if you stop playing (on the 10th, 14th, 21st and 30th day), after which there are none. All of this is scheduled on the device itself; nothing about your reminders is sent to our server.
         </p>
         <p>
-          In addition, so that we can send you a reminder if you stop playing, the app registers a push notification token with the same Ayane Labs server, together with your device's language and its time-zone offset. The token identifies the app installation on a push service, not you; it carries no name, email address, or phone number.
+          Earlier test versions of the app registered a push notification token with our server. Since October 2026 the server no longer stores or uses such tokens, and the ones it held have been deleted.
         </p>
         <p>
-          You can turn reminders off at any time in the app settings or in your device's system settings. Turning them off tells the server to stop, and no further reminder is sent.
+          You can turn reminders off at any time in the app settings or in your device's system settings.
         </p>
       </section>
 
       <section>
         <h2>Update Check</h2>
         <p>
-          The app occasionally asks the same Ayane Labs server whether a newer version is required, so the daily puzzle stays in step across devices. That request carries the app version and platform only.
+          The app occasionally downloads a small configuration file from GitHub Pages (ergunefeturanli.github.io) to learn whether a newer version is available or required, so the daily puzzle stays in step across devices. The request carries no identifier of yours; like any web request, it lets GitHub see your IP address.
         </p>
       </section>
 
@@ -189,6 +192,9 @@
         <p>
           We use Adapty to check which purchases an installation is entitled to. Adapty receives the anonymous installation identifier, the purchase receipt issued by the store, and basic device and country information. It does not receive your name or payment details.
         </p>
+        <p>
+          On Android, a payment that the store completes later (for example a pending or cash payment) is delivered through our server. Google notifies us of each completed order through Adapty, and our server stores the order number, the product, the purchase time and the billing country. When your app reports that it is waiting for a payment, the server matches the order to it and records the anonymous installation identifier with the order, so the coins are delivered exactly once. These order records are deleted automatically after 60 days.
+        </p>
       </section>
 
       <section>
@@ -205,7 +211,7 @@
       <section>
         <h2>Support Emails</h2>
         <p>
-          If you contact us by email, your email app may include your message and optional technical details such as app version and platform. We use support emails only to respond to feedback, support requests, or bug reports.
+          If you contact us by email from the app, the message includes optional technical details: app version, platform, device model, and your player code — the anonymous installation identifier — so we can find your leaderboard record or send you a coin gift if something went wrong. You can delete any of these lines before sending. We use support emails only to respond to feedback, support requests, or bug reports.
         </p>
       </section>
 
@@ -223,9 +229,8 @@
           <li>Google AdMob and Google Mobile Ads SDK for advertising and ad consent support.</li>
           <li>Google Analytics for Firebase for aggregate usage analytics.</li>
           <li>Adapty for verifying in-app purchases and entitlements.</li>
-          <li>Expo's push notification service for delivering reminders.</li>
-          <li>An Ayane Labs server (api.ayanelabs.com, Frankfurt) for the optional leaderboard, reminders, and the update check.</li>
-          <li>GitHub-hosted static legal pages.</li>
+          <li>An Ayane Labs server (api.ayanelabs.com, Frankfurt) for the optional leaderboard, the delivery of completed in-app purchases, and coin gifts.</li>
+          <li>GitHub Pages for these legal pages and the update configuration file.</li>
           <li>Apple App Store and Google Play services for app distribution, if you install the app through those stores.</li>
         </ul>
       </section>
@@ -239,19 +244,19 @@
           <strong>On your device.</strong> Uninstalling the app, or clearing its storage, removes every local copy: your board, statistics, score, streak, coins and settings. Kodle keeps no account, so there is nothing to close.
         </p>
         <p>
-          <strong>On our server.</strong> Only two things can be there: your leaderboard record (your chosen display name, your scores, and the anonymous installation identifier) and, if you allowed reminders, a push notification token with your device language and time-zone offset.
+          <strong>On our server.</strong> Three things can be there, each tied only to the anonymous installation identifier: your leaderboard record (your chosen display name and your scores); on Android, records of completed purchase orders matched to your installation (order number, product, purchase time, billing country — deleted automatically after 60 days); and any coin gift addressed to your installation (deleted about a month after it ends).
         </p>
         <p><strong>How to ask us to delete them:</strong></p>
         <ol>
           <li>Email <a href="mailto:ayanelabs@gmail.com">ayanelabs@gmail.com</a> with the subject <em>Kodle data deletion</em>.</li>
-          <li>Open the app, go to Settings and tell us the display name you used, so we can find the record.</li>
-          <li>We delete the leaderboard record and the push token within 30 days and reply to confirm.</li>
+          <li>Tell us the display name you used, or send the email from the app (Settings → Email Feedback), which includes your player code, so we can find the records.</li>
+          <li>We delete them within 30 days and reply to confirm.</li>
         </ol>
         <p>
-          <strong>What is deleted and what is kept.</strong> The leaderboard record and the push token are deleted outright. Nothing else about you is stored on our server — there is no account, email address or payment record to keep. Ordinary server access logs may keep an IP address for up to 30 days for security, after which they are discarded.
+          <strong>What is deleted and what is kept.</strong> The leaderboard record, the order records and any gifts are deleted outright. Nothing else about you is stored on our server — there is no account, email address or payment card to keep. Ordinary server access logs may keep an IP address for up to 30 days for security, after which they are discarded.
         </p>
         <p>
-          You can also do two of these yourself at any time, without writing to us: switching on "Hide me from the leaderboard" removes your entry from the public list, and turning reminders off removes the push token from the server.
+          You can also remove your entry from the public list yourself at any time, without writing to us, by switching on "Hide me from the leaderboard".
         </p>
       </section>
 
