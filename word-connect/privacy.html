@@ -97,7 +97,7 @@
 
       <section class="notice">
         <p>
-          Word Souvenir is an offline word puzzle game: you connect letters on a wheel to fill a crossword and collect postcards from cities around the world. The app does not require an account, a login, an email address, or a user profile. It shows no ads and contains no analytics. Your progress lives on your device. The only part of the app that talks to our own server is the occasional coin gift described below; the whole game works without it.
+          Word Souvenir is an offline word puzzle game: you connect letters on a wheel to fill a crossword and collect postcards from cities around the world. The app does not require an account, a login, an email address, or a user profile. It shows no ads and contains no analytics. Your progress lives on your device. The app talks to our own server only for the leaderboard and the occasional coin gift described below; the whole game works without them.
         </p>
       </section>
 
@@ -115,12 +115,35 @@
       </section>
 
       <section>
+        <h2>Leaderboard</h2>
+        <p>
+          Word Souvenir has a weekly and all-time leaderboard. To take part, the app sends the following to an Ayane Labs server at api.ayanelabs.com: your puzzle scores and the number of puzzles you finished, your display name, and the anonymous installation identifier described above.
+        </p>
+        <p>
+          Your display name starts as a random "Player" name with four digits; you can change it to any nickname in the leaderboard screen. Names are filtered for offensive words, and nothing checks a name against a real identity. Your display name, score and rank are visible to other players.
+        </p>
+        <p>
+          The identifier is not your name, email address, phone number, or advertising identifier; it exists so your own score is recognised as yours on a later visit and can be restored if you reinstall. The leaderboard also includes computer-generated players, so the board is not empty while the game is new. If you would like your leaderboard record deleted, see Your Choices and Data Deletion below.
+        </p>
+      </section>
+
+      <section>
         <h2>Coin Gifts</h2>
         <p>
           From time to time we give players free coins — to everyone (for example on a holiday) or to one player (for example to make up for a problem you wrote to us about). To learn whether a gift is waiting, the app asks an Ayane Labs server at api.ayanelabs.com when it opens. The request carries the anonymous installation identifier described above, which lets a gift be addressed to one installation; it is not your name, email address, phone number, or advertising identifier.
         </p>
         <p>
           A gift for one installation is stored on the server with that identifier and deleted about a month after it ends. The app remembers which gifts it has collected; the server does not. The server is operated by Ayane Labs and hosted in Frankfurt, Germany. Ordinary server access logs may keep an IP address for up to 30 days for security.
+        </p>
+      </section>
+
+      <section>
+        <h2>Reminders and Notifications</h2>
+        <p>
+          If you allow notifications, Word Souvenir schedules reminders on your device: at most one ordinary reminder a day, a reminder on a day your daily streak would otherwise end, and a few reminders if you stop playing (on the 10th, 14th, 21st and 30th day), after which there are none. Never between 10 pm and 8 am. All of this is scheduled on the device itself; nothing about your reminders is sent to our server.
+        </p>
+        <p>
+          Reminders are off until you turn them on. You can turn them off at any time in the app settings or in your device's system settings.
         </p>
       </section>
 
@@ -155,7 +178,7 @@
       <section>
         <h2>Third-Party Services</h2>
         <ul>
-          <li>An Ayane Labs server (api.ayanelabs.com, Frankfurt) for coin gifts.</li>
+          <li>An Ayane Labs server (api.ayanelabs.com, Frankfurt) for the leaderboard and coin gifts.</li>
           <li>GitHub Pages for these legal pages and the update configuration file.</li>
           <li>Apple App Store and Google Play services for app distribution, if you install the app through those stores. If you choose to rate the game, the rating window is shown by Apple or Google.</li>
         </ul>
@@ -167,7 +190,7 @@
           <strong>On your device.</strong> Uninstalling the app, or clearing its storage, removes every copy of your game data: progress, album, statistics, coins and settings. Word Souvenir keeps no account, so there is nothing to close.
         </p>
         <p>
-          <strong>On our side.</strong> We do not store your game data on a server. What we may hold: a coin gift addressed to your installation (deleted about a month after it ends) and any email you sent us. To have them deleted, email <a href="mailto:ayanelabs@gmail.com?subject=Word%20Souvenir%20data%20deletion">ayanelabs@gmail.com</a> with the subject <em>Word Souvenir data deletion</em>; tell us your player code (it is in the email the app prepares from Settings → Write to us); we delete them within 30 days and reply to confirm.
+          <strong>On our side.</strong> What we may hold: your leaderboard record (display name, scores, number of finished puzzles and the anonymous installation identifier), a coin gift addressed to your installation (deleted about a month after it ends) and any email you sent us. To have them deleted, email <a href="mailto:ayanelabs@gmail.com?subject=Word%20Souvenir%20data%20deletion">ayanelabs@gmail.com</a> with the subject <em>Word Souvenir data deletion</em>; tell us your player code (it is in the email the app prepares from Settings → Write to us); we delete them within 30 days and reply to confirm.
         </p>
       </section>
 
