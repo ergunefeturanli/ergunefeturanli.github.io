@@ -29,7 +29,7 @@ jobs:
       - name: Sağlık denetimi
         env:
           BASE: https://api.ayanelabs.com
-          APPS: wordatlas wordlenumbers wordle wordconnect codeword # boşlukla ayır: "wordatlas wordle wordfit"
+          APPS: wordatlas wordlenumbers wordle wordconnect codeword tilematch # boşlukla ayır: "wordatlas wordle wordfit"
         run: |
           fail=0
 
